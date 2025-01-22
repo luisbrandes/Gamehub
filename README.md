@@ -1,4 +1,4 @@
-# Organizador e Pesquisa de Jogos 🎮
+# Gamehub 🎮
 
 Este é um projeto de site desenvolvido para oferecer uma experiência completa para os amantes de jogos. Com este organizador e ferramenta de pesquisa de jogos, você poderá:
 
