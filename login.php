@@ -15,6 +15,8 @@ if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }
 
+$error_message = ""; // Inicializar variável para mensagem de erro
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -35,10 +37,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header("Location: inicio.php");
             exit();
         } else {
-            echo "Senha incorreta!";
+            $error_message = "Senha incorreta!";
         }
     } else {
-        echo "Usuário não encontrado!";
+        $error_message = "Usuário não encontrado!";
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="stylelogin.css">
+</head>
+<body>
+    <div class="login">
+        <div class="login-container">
+            <div class="logo">Bem-vindo</div>
+            <h2>Entrar na conta</h2>
+            <form action="login.php" method="POST">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+                <label for="password">Senha:</label>
+                <input type="password" name="password" id="password" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <!-- Exibe a mensagem de erro -->
+            <?php if (!empty($error_message)): ?>
+                <p class="error-message"><?php echo htmlspecialchars($error_message); ?></p>
+            <?php endif; ?>
+            <p>Não tem uma conta? <a href="register.php" class="create-account">Crie uma conta</a></p>
+        </div>
+    </div>
+</body>
+</html>
