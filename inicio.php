@@ -10,3 +10,5 @@ if (!isset($_SESSION['user_id'])) {
 echo "<h2>Bem-vindo, " . $_SESSION['user_name'] . "!</h2>";
 echo "<p><a href='logout.php'>Sair</a></p>";
 ?>
+
+

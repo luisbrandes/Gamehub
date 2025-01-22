@@ -1,0 +1,48 @@
+#menu {
+    display: grid;
+    grid-template-columns: 3% 57% 40% ;
+    padding: 5px;
+    background-color: #000000;
+}
+
+li {
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 5px;
+    margin-right: 25px;
+}
+
+li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: gray;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#logo {
+    width: 50px;
+    padding: 5px;
+    border-radius: 50px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+#conteiner {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 5px;
+    background-color: #ffffff;
+}
+
+#banner-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 5px;
+    background-color: #ffffff;
+}
