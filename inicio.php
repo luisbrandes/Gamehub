@@ -54,12 +54,31 @@ $library_result = $stmt->get_result();
     </header>
 
     <div id="conteiner">
-        <div id="banner-conteiner">
+    <div id="banner-conteiner">
             <h1>Gamehub</h1>
             <div id="banner">
-                <img src="img/BlackMith.png" alt="Banner">
+                <img src="img/BlackMith-banner.png" alt="Banner 1">
             </div>
-        </div>
+            <!-- Botões de seleção de banner -->
+            <div id="banner-buttons">
+                <div class="banner-button active" data-index="0">
+                    <img src="img/BlackMith-banner.png" alt="BlackMith">
+                    <span>BlackMith</span>
+                </div>
+                <div class="banner-button" data-index="1">
+                    <img src="img/fortinite-banner.png" alt="Fortnite">
+                    <span>Fortnite</span>
+                </div>
+                <div class="banner-button" data-index="2">
+                    <img src="img/Its-take-two-banner.png" alt="Its Take Two">
+                    <span>Its Take Two</span>
+                </div>
+                <div class="banner-button" data-index="3">
+                    <img src="img/fall-guys-banner.png" alt="Fall Guys">
+                    <span>Fall Guys</span>
+                </div>
+            </div>
+        </div>   
 
         <div id="biblioteca-conteiner">
             <h1>Biblioteca</h1>
@@ -87,6 +106,7 @@ $library_result = $stmt->get_result();
             <p>Gamehub - 2025</p>
         </div>
     </footer>
+    <script src="banner.js"></script>
 </body>
 
 </html>
