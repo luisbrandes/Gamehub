@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Conta</title>
-    <link rel="stylesheet" href="styleregister.css">
+    <link rel="stylesheet" href="css/styleregister.css">
 </head>
 <body>
     <!-- Se a mensagem de sucesso existir, exibe ela no centro da tela -->

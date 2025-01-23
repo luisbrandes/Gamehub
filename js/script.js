@@ -1,4 +1,4 @@
-// Funcionalidade para exibição automática do banner de jogos
+
 const images = document.querySelectorAll('#banner img');
 let currentImage = 0;
 

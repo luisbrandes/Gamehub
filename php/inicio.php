@@ -37,7 +37,7 @@ $library_result = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamehub</title>
-    <link rel="stylesheet" href="hub.css">
+    <link rel="stylesheet" href="css/hub.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
 </head>
 
@@ -46,7 +46,7 @@ $library_result = $stmt->get_result();
         <nav id="menu">
             <img src="img/logotipo.png" alt="Logo" id="logo">
             <ul>
-                <li><a href="pagina-principal.html">Página Principal</a></li>
+                <li><a href="inicio.php">Página Principal</a></li>
                 <li><a href="biblioteca.php">Biblioteca</a></li>
                 <li><a href="store.php">Store</a></li>
             </ul>
@@ -106,7 +106,7 @@ $library_result = $stmt->get_result();
             <p>Gamehub - 2025</p>
         </div>
     </footer>
-    <script src="banner.js"></script>
+    <script src="js/banner.js"></script>
 </body>
 
 </html>

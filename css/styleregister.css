@@ -1,5 +1,5 @@
 body {
-    background-color: #121212; /* Cor de fundo escura */
+    background-color: #121212;
     color: #fff;
     font-family: Arial, sans-serif;
     display: flex;
@@ -87,7 +87,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Para mensagens de erro */
+
 .message {
     color: red;
     font-size: 16px;
@@ -96,8 +96,7 @@ a:hover {
     text-align: center;
 }
 
-/* Para a tela de sucesso */
-/* Estilo para a tela de sucesso */
+
 .success-message-container {
     position: fixed;
     top: 0;
@@ -107,13 +106,13 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.8); /* Tela escura */
-    z-index: 9999; /* Garantir que sobreponha outros elementos */
+    background-color: rgba(0, 0, 0, 0.8); 
+    z-index: 9999; 
 }
 
 
 .success-message {
-    background-color: #1e1e1e; /* Mantenha o fundo escuro para combinar com o tema */
+    background-color: #1e1e1e; 
     color: rgb(255, 255, 255);
     padding: 30px;
     text-align: center;
@@ -123,7 +122,7 @@ a:hover {
     font-weight: 600;
     max-width: 400px;
     width: 100%;
-    border: 1px solid #5294e2; /* Mantém a borda azul */
+    border: 1px solid #5294e2;
 }
 
 
