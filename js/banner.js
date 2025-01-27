@@ -5,15 +5,15 @@ const imagensBanner = [
     'img/fall-guys-banner.png'
 ];
 
-const buttons = document.querySelectorAll('.banner-button');
+const $buttons = $('.banner-button');
 let indiceImagem = 0;
 let imagemAtual = imagensBanner[indiceImagem];
-const banner = document.getElementById('banner');
-const bannerImg = banner.querySelector('img');
+const $banner = $('#banner');
+const $bannerImg = $banner.find('img');
 let intervaloTroca;
 
 function trocaAutomaticaBanner() {
-    intervaloTroca = setInterval(() => {
+    intervaloTroca = setInterval(function() {
         indiceImagem++;
         if (indiceImagem >= imagensBanner.length) {
             indiceImagem = 0;
@@ -24,19 +24,19 @@ function trocaAutomaticaBanner() {
 
 function trocarBanner(index, isAutomatic = false) {
     if (isAutomatic) {
-        bannerImg.classList.remove('show');
-        setTimeout(() => {
-            bannerImg.src = imagensBanner[index];
-            bannerImg.alt = `Banner ${index + 1}`;
-            bannerImg.classList.add('show');
+        $bannerImg.removeClass('show');
+        setTimeout(function() {
+            $bannerImg.attr('src', imagensBanner[index])
+                      .attr('alt', `Banner ${index + 1}`);
+            $bannerImg.addClass('show');
             atualizarBotoes(index);
         }, 1000);
     } else {
-        bannerImg.classList.remove('show');
-        setTimeout(() => {
-            bannerImg.src = imagensBanner[index];
-            bannerImg.alt = `Banner ${index + 1}`;
-            bannerImg.classList.add('show');
+        $bannerImg.removeClass('show');
+        setTimeout(function() {
+            $bannerImg.attr('src', imagensBanner[index])
+                      .attr('alt', `Banner ${index + 1}`);
+            $bannerImg.addClass('show');
             atualizarBotoes(index);
         }, 100);
     }
@@ -45,14 +45,12 @@ function trocarBanner(index, isAutomatic = false) {
 }
 
 function atualizarBotoes(index) {
-    buttons.forEach(button => {
-        button.classList.remove('active');
-    });
-    buttons[index].classList.add('active');
+    $buttons.removeClass('active');
+    $buttons.eq(index).addClass('active');
 }
 
-buttons.forEach((button, index) => {
-    button.addEventListener('click', () => {
+$buttons.each(function(index) {
+    $(this).on('click', function() {
         clearInterval(intervaloTroca);
         trocarBanner(index, false);
         indiceImagem = index;
@@ -60,7 +58,8 @@ buttons.forEach((button, index) => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+$(document).ready(function() {
     trocarBanner(indiceImagem, true);
     trocaAutomaticaBanner();
 });
+

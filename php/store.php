@@ -101,9 +101,19 @@ $result_store = $conn->query($sql_store);
 
     <footer>
         <div id="footer">
-            <p>Gamehub - 2025</p>
-        </div>
+            <p>Gamehub</p>
+            <div id="pop-up">
+                <h1>Desenvolvedores</h1>
+                <div id="pop-up-conteiner">
+                    <img src="img/Luis.jpg" alt="criador" id="criador" class="redondo">
+                    <h2>Luis Brandes</h2>
+                    <img src="img/Bresolin.png" alt="criador" id="criador">
+                    <h2>Gabriel Bresolin</h2>
+                </div>
+            </div>
     </footer>
+    <script src="js/banner.js"></script>
+    <script src="js/pop-up.js"></script>
 </body>
 
 </html>
