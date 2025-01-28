@@ -37,7 +37,7 @@ $library_result = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamehub</title>
-    <link rel="stylesheet" href="hub.css">
+    <link rel="stylesheet" href="inicio.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
 </head>
 
