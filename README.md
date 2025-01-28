@@ -22,4 +22,3 @@ Este é um projeto de site desenvolvido para oferecer uma experiência completa 
 - **Frontend:** HTML/CSS simples e JavaScript
 - **Backend:** Php
 - **Banco de Dados
-- **API de Dados de Jogos
