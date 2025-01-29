@@ -19,6 +19,8 @@ body {
 #menu {
     display: flex;
     align-items: center;
+    background-color: #161b22;
+    padding: 10px 20px;
 }
 
 #logo {
@@ -67,7 +69,7 @@ nav ul li a:hover {
 #banner {
     width: 100%;
     max-width: 800px;
-    height: 400px;
+    height: 340px;
     overflow: hidden;
     border-radius: 15px;
     position: relative;
@@ -83,13 +85,16 @@ nav ul li a:hover {
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     border: 1px solid #21262d;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 #banner img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 10px;
     transition: opacity 0.5s ease;
+    margin-top: 10px;
 }
 
 #banner img.show {
@@ -99,7 +104,7 @@ nav ul li a:hover {
 #banner-buttons {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .banner-button {
@@ -218,6 +223,7 @@ nav ul li a:hover {
     opacity: 60%;
     border-top: 1px solid #21262d;
     margin-top: 20px;
+    top: -20px;
 }
 
 #pop-up{
@@ -233,7 +239,6 @@ nav ul li a:hover {
     padding: 20px;
     margin: 20px auto;
     transform:  translateY(-390px);
-    
 }
 
 #pop-up-conteiner{
@@ -253,9 +258,60 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     width: 50px;
-   
 }
 
 .redondo{
     border-radius: 50%;
+}
+
+/* Novo CSS para o nome do usuário e o botão de logout */
+
+header div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#user-name {
+    color: #c9d1d9;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+#logout-button {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+#logout-button:hover {
+    background-color: #d32f2f;
+}
+
+header div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#user-name {
+    color: #c9d1d9;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+#logout-button {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+#logout-button:hover {
+    background-color: #d32f2f;
 }

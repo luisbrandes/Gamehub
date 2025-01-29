@@ -46,6 +46,14 @@ $stmt_library->bind_param('i', $_SESSION['user_id']);
 $stmt_library->execute();
 $result_library = $stmt_library->get_result();
 
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT name FROM Users WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $user_id);
+$stmt->execute();
+$stmt->bind_result($user_name);
+$stmt->fetch();
+
 ?>
 
 <!DOCTYPE html>
@@ -55,9 +63,12 @@ $result_library = $stmt_library->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca - Gamehub</title>
-    <link rel="stylesheet" href="store.css">
+    <link rel="stylesheet" href="biblioteca.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
+<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+=======
+>>>>>>> 41a7e613bb3885858a95df3465255ef3f568740c
 </head>
 
 <body>
@@ -65,11 +76,15 @@ $result_library = $stmt_library->get_result();
         <nav id="menu">
             <img src="img/logotipo.png" alt="Logo" id="logo">
             <ul>
-                <li><a href="pagina-principal.html">Página Principal</a></li>
+                <li><a href="inicio.php">Página Principal</a></li>
                 <li><a href="biblioteca.php">Biblioteca</a></li>
                 <li><a href="store.php">Store</a></li>
             </ul>
         </nav>
+        <div>
+            <span id="user-name"><?php echo $user_name; ?></span>
+            <a href="logout.php" id="logout-button">Sair</a>
+        </div>
     </header>
 
     <div id="conteiner">
@@ -97,6 +112,7 @@ $result_library = $stmt_library->get_result();
     </div>
 
     <footer>
+<<<<<<< HEAD
     <div id="footer">
             <p>Gamehub</p>
             <div id="pop-up">
@@ -108,6 +124,11 @@ $result_library = $stmt_library->get_result();
                     <h2>Gabriel Bresolin</h2>
                 </div>
             </div>
+=======
+        <div id="footer">
+            <p>Gamehub - 2025</p>
+        </div>
+>>>>>>> 41a7e613bb3885858a95df3465255ef3f568740c
     </footer>
     <script src="js/pop-up.js"></script>
 </body>

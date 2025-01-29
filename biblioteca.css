@@ -1,23 +1,18 @@
-header {
-    background-color: #161b22;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid #21262d;
-}
-
 body {
     margin: 0;
     background-color: #0d1117;
     font-family: Arial, sans-serif;
     color: #c9d1d9;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 #menu {
     display: flex;
     align-items: center;
+    background-color: #161b22;
+    padding: 10px 20px;
 }
 
 #logo {
@@ -49,55 +44,155 @@ nav ul li a:hover {
     background-color: #27292b;
 }
 
+footer {
+    width: 100%;
+}
+
 #footer {
     text-align: center;
     background-color: #161b22;
     color: #c9d1d9;
     padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    opacity: 60%;
+    margin-top: auto;
     border-top: 1px solid #21262d;
-    margin-top: 20px;
 }
 
-#pop-up{
-    display: none;
-    position: absolute;
-    opacity: 100%;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    border: 1px solid #21262d;
+h1 {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 30px;
     background-color: #161b22;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
+    border: 2px solid #21262d;
+    font-size: 36px;
+    color: #c9d1d9;
+    margin-left: 70px;
+}
+
+#conteiner {
     padding: 20px;
-    margin: 20px auto;
-    transform:  translateY(-390px);
-    
 }
 
-#pop-up-conteiner{
-    display: grid;
-    grid-template-columns: 20% 80%;
-    padding: 5px;
+#library-container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-#pop-up-conteiner img{
-    padding:5px;
-    margin-right: 40px;
-    margin-bottom: 23px;
-}
-
-#criador{
-    opacity: 100%;
+#games-list {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: center;
-    width: 50px;
-   
 }
 
-.redondo{
-    border-radius: 50%;
+.game {
+    width: 180px;
+    height: 250px;
+    background-color: #161b22;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    border: 2px solid #21262d;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.game img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.game h3 {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #c9d1d9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+form {
+    margin-top: auto;
+}
+
+button {
+    padding: 10px;
+    background-color: #238636;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #2ea043;
+}
+
+header {
+    background-color: #161b22;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid #21262d;
+}
+
+header div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#user-name {
+    color: #c9d1d9;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+#logout-button {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+#logout-button:hover {
+    background-color: #d32f2f;
+}
+
+header div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#user-name {
+    color: #c9d1d9
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+#logout-button {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+#logout-button:hover {
+    background-color: #d32f2f;
 }

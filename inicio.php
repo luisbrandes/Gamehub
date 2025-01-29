@@ -19,15 +19,24 @@ if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }
 
-// Consultar jogos na biblioteca do usuário
+// Consultar jogos na biblioteca do usuário (limitando a 7 jogos)
 $user_id = $_SESSION['user_id'];
 $sql_library = "SELECT games.id, games.name, games.image_url FROM games 
                 JOIN user_games ON games.id = user_games.game_id
-                WHERE user_games.user_id = ?";
+                WHERE user_games.user_id = ? 
+                LIMIT 5"; // Limite de 7 jogos
 $stmt = $conn->prepare($sql_library);
 $stmt->bind_param('i', $user_id);
 $stmt->execute();
 $library_result = $stmt->get_result();
+
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT name FROM Users WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $user_id);
+$stmt->execute();
+$stmt->bind_result($user_name);
+$stmt->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +48,10 @@ $library_result = $stmt->get_result();
     <title>Gamehub</title>
     <link rel="stylesheet" href="inicio.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
+<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+=======
+>>>>>>> 41a7e613bb3885858a95df3465255ef3f568740c
 </head>
 
 <body>
@@ -52,10 +64,14 @@ $library_result = $stmt->get_result();
                 <li><a href="store.php">Store</a></li>
             </ul>
         </nav>
+        <div>
+            <span id="user-name"><?php echo $user_name; ?></span>
+            <a href="logout.php" id="logout-button">Sair</a>
+        </div>
     </header>
 
     <div id="conteiner">
-    <div id="banner-conteiner">
+        <div id="banner-conteiner">
             <h1>Gamehub</h1>
             <div id="banner">
                 <img src="img/BlackMith-banner.png" alt="Banner 1">
@@ -79,13 +95,13 @@ $library_result = $stmt->get_result();
                     <span>Fall Guys</span>
                 </div>
             </div>
-        </div>   
+        </div>
 
         <div id="biblioteca-conteiner">
             <h1>Biblioteca</h1>
             <div id="biblioteca">
                 <?php if ($library_result->num_rows > 0): ?>
-                    <!-- Exibe os jogos da biblioteca -->
+                    <!-- Exibe os jogos da biblioteca (limite de 7 jogos) -->
                     <?php while ($game = $library_result->fetch_assoc()): ?>
                         <div class="game">
                             <img src="<?php echo $game['image_url']; ?>" alt="<?php echo $game['name']; ?>">
@@ -103,6 +119,7 @@ $library_result = $stmt->get_result();
     </div>
 
     <footer>
+<<<<<<< HEAD
     <div id="footer">
             <p>Gamehub</p>
             <div id="pop-up">
@@ -114,6 +131,11 @@ $library_result = $stmt->get_result();
                     <h2>Gabriel Bresolin</h2>
                 </div>
             </div>
+=======
+        <div id="footer">
+            <p>Gamehub - 2025</p>
+        </div>
+>>>>>>> 41a7e613bb3885858a95df3465255ef3f568740c
     </footer>
     <script src="js/pop-up.js"></script>
     <script src="banner.js"></script>

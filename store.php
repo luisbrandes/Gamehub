@@ -1,54 +1,60 @@
 <?php
 session_start();
-
-// Verifica se o usuário está logado
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
 
-// Conexão com o banco de dados
 $servername = "sql204.infinityfree.com";
 $username = "if0_38145611";
 $password = "l906DqNGC2Csj4C";
 $database = "if0_38145611_userscredentials";
 $conn = new mysqli($servername, $username, $password, $database);
 
-// Verifica a conexão
 if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }
 
-// Ação de Adquirir ou Remover jogo
 if (isset($_POST['adquirir']) || isset($_POST['remover'])) {
     $game_id = $_POST['game_id'];
     $user_id = $_SESSION['user_id'];
 
     if (isset($_POST['adquirir'])) {
-        // Adicionar jogo à biblioteca do usuário
-        $sql_add = "INSERT INTO user_games (user_id, game_id) VALUES (?, ?)";
-        $stmt_add = $conn->prepare($sql_add);
-        $stmt_add->bind_param('ii', $user_id, $game_id);
-        $stmt_add->execute();
+        $sql_check = "SELECT * FROM user_games WHERE user_id = ? AND game_id = ?";
+        $stmt_check = $conn->prepare($sql_check);
+        $stmt_check->bind_param('ii', $user_id, $game_id);
+        $stmt_check->execute();
+        $result_check = $stmt_check->get_result();
+
+        if ($result_check->num_rows == 0) { 
+            $sql_add = "INSERT INTO user_games (user_id, game_id) VALUES (?, ?)";
+            $stmt_add = $conn->prepare($sql_add);
+            $stmt_add->bind_param('ii', $user_id, $game_id);
+            $stmt_add->execute();
+        }
     }
 
     if (isset($_POST['remover'])) {
-        // Remover jogo da biblioteca do usuário
         $sql_remove = "DELETE FROM user_games WHERE user_id = ? AND game_id = ?";
         $stmt_remove = $conn->prepare($sql_remove);
         $stmt_remove->bind_param('ii', $user_id, $game_id);
         $stmt_remove->execute();
     }
 
-    // Redireciona para a loja após a ação
     header("Location: store.php");
     exit();
 }
 
-// Consultar todos os jogos disponíveis na loja
 $sql_store = "SELECT id, name, image_url FROM games";
 $result_store = $conn->query($sql_store);
 
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT name FROM Users WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $user_id);
+$stmt->execute();
+$stmt->bind_result($user_name);
+$stmt->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -58,8 +64,9 @@ $result_store = $conn->query($sql_store);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja - Gamehub</title>
-    <link rel="stylesheet" href="hub.css">
+    <link rel="stylesheet" href="store.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 =======
@@ -78,6 +85,8 @@ $result_store = $conn->query($sql_store);
         }
     </style>
 >>>>>>> 58e896bbf1039d9a6ca285e5184d4e2d636c032f
+=======
+>>>>>>> 41a7e613bb3885858a95df3465255ef3f568740c
 </head>
 
 <body>
@@ -85,11 +94,15 @@ $result_store = $conn->query($sql_store);
         <nav id="menu">
             <img src="img/logotipo.png" alt="Logo" id="logo">
             <ul>
-                <li><a href="pagina-principal.html">Página Principal</a></li>
+                <li><a href="inicio.php">Página Principal</a></li>
                 <li><a href="biblioteca.php">Biblioteca</a></li>
                 <li><a href="store.php">Store</a></li>
             </ul>
         </nav>
+        <div>
+            <span id="user-name"><?php echo $user_name; ?></span>
+            <a href="logout.php" id="logout-button">Sair</a>
+        </div>
     </header>
 
     <div id="conteiner">
@@ -97,12 +110,10 @@ $result_store = $conn->query($sql_store);
             <h1>Loja de Jogos</h1>
             <div id="games-list">
                 <?php if ($result_store->num_rows > 0): ?>
-                    <!-- Exibe todos os jogos da loja -->
                     <?php while ($game = $result_store->fetch_assoc()): ?>
                         <div class="game">
                             <img src="<?php echo $game['image_url']; ?>" alt="<?php echo $game['name']; ?>">
                             <h3><?php echo $game['name']; ?></h3>
-                            <!-- Formulários para adquirir e remover jogos -->
                             <form action="store.php" method="POST">
                                 <input type="hidden" name="game_id" value="<?php echo $game['id']; ?>">
                                 <button type="submit" name="adquirir">Adquirir</button>
@@ -118,6 +129,7 @@ $result_store = $conn->query($sql_store);
     </div>
 
     <footer>
+<<<<<<< HEAD
     <div id="footer">
             <p>Gamehub</p>
             <div id="pop-up">
@@ -129,12 +141,14 @@ $result_store = $conn->query($sql_store);
                     <h2>Gabriel Bresolin</h2>
                 </div>
             </div>
+=======
+        <div id="footer">
+            <p>Gamehub - 2025</p>
+        </div>
+>>>>>>> 41a7e613bb3885858a95df3465255ef3f568740c
     </footer>
     <script src="js/pop-up.js"></script>
 </body>
-
 </html>
 
-<?php
-$conn->close();
-?>
+<?php $conn->close(); ?>
