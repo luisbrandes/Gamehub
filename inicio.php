@@ -106,10 +106,10 @@ $stmt->fetch();
                         </div>
                     <?php endwhile; ?>
                 <?php else: ?>
-                    <p>Você ainda não comprou nenhum jogo.</p>
+                    <p>Você ainda não adicionou nenhum jogo.</p>
                 <?php endif; ?>
                 <div id="abrir-biblioteca">
-                    <a href="biblioteca_completa.php">Abrir Biblioteca Completa</a>
+                    <a href="biblioteca.php">Abrir Biblioteca Completa</a>
                 </div>
             </div>
         </div>
@@ -125,10 +125,12 @@ $stmt->fetch();
                     <h2>Luis Brandes</h2>
                     <img src="img/Bresolin.png" alt="criador" id="criador">
                     <h2>Gabriel Bresolin</h2>
+                    <img src="img/Gabrielle.png" alt="criador" id="criador" class="redondo">
+                    <h2>Gabrielle Rocha</h2>
                 </div>
             </div>
     </footer>
-    <script src="js/pop-up.js"></script>
+    <script src="pop-up.js"></script>
     <script src="banner.js"></script>
 </body>
 

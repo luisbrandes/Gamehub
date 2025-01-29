@@ -6,6 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 #menu {
@@ -53,14 +54,12 @@ footer {
     background-color: #161b22;
     color: #c9d1d9;
     padding: 10px;
-    position: fixed;
     width: 100%;
     bottom: 0;
     opacity: 60%;
     opacity: 100%;
     border-top: 1px solid #21262d;
     margin-top: 20px;
-    
 }
 
 h1 {
@@ -130,7 +129,7 @@ form {
 
 button {
     padding: 10px;
-    background-color: #238636;
+    background-color: #a40e26;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -140,7 +139,7 @@ button {
 }
 
 button:hover {
-    background-color: #2ea043;
+    background-color: #bb213b;
 }
 
 header {
@@ -151,31 +150,6 @@ header {
     justify-content: space-between;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     border-bottom: 1px solid #21262d;
-}
-
-header div {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-#user-name {
-    color: #c9d1d9;
-    font-size: 18px;
-    margin-right: 15px;
-}
-
-#logout-button {
-    background-color: #f44336;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-#logout-button:hover {
-    background-color: #d32f2f;
 }
 
 header div {
@@ -216,25 +190,27 @@ header div {
     padding: 20px;
     margin: 20px auto;
     transform:  translateY(-390px);
-    
 }
+
 #pop-up-conteiner{
     display: grid;
     grid-template-columns: 20% 80%;
     padding: 5px;
 }
+
 #pop-up-conteiner img{
     padding:5px;
     margin-right: 40px;
     margin-bottom: 23px;
 }
+
 #criador{
     opacity: 100%;
     display: flex;
     justify-content: center;
     width: 50px;
-   
 }
+
 .redondo{
     border-radius: 50%;
 }
