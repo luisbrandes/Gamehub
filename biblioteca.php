@@ -108,7 +108,6 @@ $result_library = $stmt_library->get_result();
                     <h2>Gabriel Bresolin</h2>
                 </div>
             </div>
-        </div>
     </footer>
     <script src="js/pop-up.js"></script>
 </body>

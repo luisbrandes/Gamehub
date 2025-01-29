@@ -60,7 +60,24 @@ $result_store = $conn->query($sql_store);
     <title>Loja - Gamehub</title>
     <link rel="stylesheet" href="hub.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
+<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+=======
+    <style>
+        main {
+            padding: 20px;
+            border-radius: 10px;
+
+            min-width: 320px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+>>>>>>> 58e896bbf1039d9a6ca285e5184d4e2d636c032f
 </head>
 
 <body>
@@ -112,7 +129,6 @@ $result_store = $conn->query($sql_store);
                     <h2>Gabriel Bresolin</h2>
                 </div>
             </div>
-        </div>
     </footer>
     <script src="js/pop-up.js"></script>
 </body>
