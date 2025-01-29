@@ -60,6 +60,7 @@ $result_store = $conn->query($sql_store);
     <title>Loja - Gamehub</title>
     <link rel="stylesheet" href="hub.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -100,10 +101,20 @@ $result_store = $conn->query($sql_store);
     </div>
 
     <footer>
-        <div id="footer">
-            <p>Gamehub - 2025</p>
+    <div id="footer">
+            <p>Gamehub</p>
+            <div id="pop-up">
+                <h1>Desenvolvedores</h1>
+                <div id="pop-up-conteiner">
+                    <img src="img/Luis.jpg" alt="criador" id="criador" class="redondo">
+                    <h2>Luis Brandes</h2>
+                    <img src="img/Bresolin.png" alt="criador" id="criador">
+                    <h2>Gabriel Bresolin</h2>
+                </div>
+            </div>
         </div>
     </footer>
+    <script src="js/pop-up.js"></script>
 </body>
 
 </html>
