@@ -1,77 +1,64 @@
-const imagensBanner = [
-    'img/BlackMith-banner.png',
-    'img/fortinite-banner.png',
-    'img/Its-take-two-banner.png',
-    'img/fall-guys-banner.png'
-];
+$(document).ready(function () {
+    const imagensBanner = [
+        'img/BlackMith-banner.png',
+        'img/fortinite-banner.png',
+        'img/Its-take-two-banner.png',
+        'img/fall-guys-banner.png'
+    ];
 
-const buttons = document.querySelectorAll('.banner-button');
-let indiceImagem = 0;
-let imagemAtual = imagensBanner[indiceImagem];
-const banner = document.getElementById('banner');
-const bannerImg = banner.querySelector('img');
-let intervaloTroca;
+    const $buttons = $('.banner-button');
+    let indiceImagem = 0;
+    let imagemAtual = imagensBanner[indiceImagem];
+    const $bannerImg = $('#banner img');
+    let intervaloTroca;
 
-function trocaAutomaticaBanner() {
-    intervaloTroca = setInterval(() => {
-        indiceImagem++;
-        if (indiceImagem >= imagensBanner.length) {
-            indiceImagem = 0;
-        }
-        trocarBanner(indiceImagem, true);
-    }, 5000);
-}
-
-function trocarBanner(index, isAutomatic = false) {
-    if (isAutomatic) {
-        bannerImg.classList.remove('show');
-        setTimeout(() => {
-            bannerImg.src = imagensBanner[index];
-            bannerImg.alt = `Banner ${index + 1}`;
-            bannerImg.classList.add('show');
-            atualizarBotoes(index);
-        }, 1000);
-    } else {
-        bannerImg.classList.remove('show');
-        setTimeout(() => {
-            bannerImg.src = imagensBanner[index];
-            bannerImg.alt = `Banner ${index + 1}`;
-            bannerImg.classList.add('show');
-            atualizarBotoes(index);
-        }, 100);
+    function trocaAutomaticaBanner() {
+        intervaloTroca = setInterval(() => {
+            indiceImagem++;
+            if (indiceImagem >= imagensBanner.length) {
+                indiceImagem = 0;
+            }
+            trocarBanner(indiceImagem, true);
+        }, 5000);
     }
 
-    imagemAtual = imagensBanner[index];
-}
+    function trocarBanner(index, isAutomatic = false) {
+        $bannerImg.removeClass('show');
+        setTimeout(() => {
+            $bannerImg.attr('src', imagensBanner[index])
+                .attr('alt', `Banner ${index + 1}`)
+                .addClass('show');
+            atualizarBotoes(index);
+        }, isAutomatic ? 1000 : 100);
 
-function atualizarBotoes(index) {
-    buttons.forEach(button => {
-        button.classList.remove('active');
+        imagemAtual = imagensBanner[index];
+    }
+
+    function atualizarBotoes(index) {
+        $buttons.removeClass('active');
+        $buttons.eq(index).addClass('active');
+    }
+
+    $buttons.each(function (index) {
+        $(this).on('click', function () {
+            clearInterval(intervaloTroca);
+            trocarBanner(index, false);
+            indiceImagem = index;
+            trocaAutomaticaBanner();
+        });
     });
-    buttons[index].classList.add('active');
-}
 
-buttons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        clearInterval(intervaloTroca);
-        trocarBanner(index, false);
-        indiceImagem = index;
-        trocaAutomaticaBanner();
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
     trocarBanner(indiceImagem, true);
     trocaAutomaticaBanner();
-});
 
-let dev = document.querySelector('#footer');
-let hover = document.querySelector('#pop-up');
+    const $dev = $('#footer');
+    const $hover = $('#pop-up');
 
-dev.addEventListener('mouseover', function() {
-    hover.style.display = 'inline-block';
-});
+    $dev.on('mouseover', function () {
+        $hover.css('display', 'inline-block');
+    });
 
-dev.addEventListener('mouseout', function() {
-    hover.style.display = 'none';
+    $dev.on('mouseout', function () {
+        $hover.css('display', 'none');
+    });
 });
