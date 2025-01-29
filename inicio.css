@@ -218,12 +218,14 @@ nav ul li a:hover {
     background-color: #161b22;
     color: #c9d1d9;
     padding: 10px;
+    position: fixed;
     width: 100%;
     bottom: 0;
     opacity: 60%;
+    opacity: 100%;
     border-top: 1px solid #21262d;
     margin-top: 20px;
-    top: -20px;
+    
 }
 
 #pop-up{
@@ -315,3 +317,4 @@ header div {
 #logout-button:hover {
     background-color: #d32f2f;
 }
+
