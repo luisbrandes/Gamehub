@@ -60,6 +60,20 @@ $result_store = $conn->query($sql_store);
     <title>Loja - Gamehub</title>
     <link rel="stylesheet" href="hub.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
+    <style>
+        main {
+            padding: 20px;
+            border-radius: 10px;
+
+            min-width: 320px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -101,7 +115,7 @@ $result_store = $conn->query($sql_store);
 
     <footer>
         <div id="footer">
-            <p>Gamehub - 2025</p>
+            <p><p>&copy; 2025 - Gamehub | <a href="#">Política de Privacidade</a></p></p>
         </div>
     </footer>
 </body>
