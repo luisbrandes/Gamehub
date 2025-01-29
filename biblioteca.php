@@ -65,10 +65,7 @@ $stmt->fetch();
     <title>Biblioteca - Gamehub</title>
     <link rel="stylesheet" href="biblioteca.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
-<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-=======
->>>>>>> 41a7e613bb3885858a95df3465255ef3f568740c
 </head>
 
 <body>
@@ -112,7 +109,6 @@ $stmt->fetch();
     </div>
 
     <footer>
-<<<<<<< HEAD
     <div id="footer">
             <p>Gamehub</p>
             <div id="pop-up">
@@ -124,11 +120,6 @@ $stmt->fetch();
                     <h2>Gabriel Bresolin</h2>
                 </div>
             </div>
-=======
-        <div id="footer">
-            <p>Gamehub - 2025</p>
-        </div>
->>>>>>> 41a7e613bb3885858a95df3465255ef3f568740c
     </footer>
     <script src="js/pop-up.js"></script>
 </body>
